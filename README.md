@@ -5,7 +5,7 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 ![Funny GIF](https://www.visolve.com/uploads/images/ssl_intro1.gif)
 
-#### Encryption && Decryption
+#### Encryption && Decryption , Hashing
 
 * **Encrption**
 
@@ -24,3 +24,9 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
     openssl enc -des3 -in plaintext.txt -out encrypted.txt # encrypt
     # enter passphrase or you add -k option to add it explicitly to the openssl comamnd
     openssl enc -des3 -d -in encrypted.txt -out decrypted.txt # decrypt
+
+
+*   **Hashing**
+    
+    openssl "hash_algorithm" filename # (md5, sha1, sha256, ...)
+
