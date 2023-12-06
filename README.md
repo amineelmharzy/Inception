@@ -66,7 +66,7 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
         * Authentication : Client/Server are indeed who they they are (PKI)
 
 **Key PLayers**
-* Client *
+* Client
     * Entity intiating the tls handshake
     * webbrower
     * optionaly authenticated (rare) (client rarely provide the certificate)
