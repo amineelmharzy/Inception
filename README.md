@@ -17,7 +17,7 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 **Chipers**
 
-    openssl enc -list
+    opensGsl enc -list
 
 **Examples**
 
@@ -27,5 +27,9 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 **Hashing**
     
-    openssl "hash_algorithm" filename # (md5, sha1, sha256, ...)
+    openssl "hash_algorithm" filename #(md5, sha1, sha256, ...)
+
+#### OpenSSL Public key infrastructure(PKI)
+
+OpenSSL provides tools and libraries that are commonly used in the context of a PKI. Here are some ways OpenSSL can be used in a PKI.
 
