@@ -47,6 +47,8 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
 > Cirtificates used to virity the website identity and it holds the public key that the user should use it to incrypt the packets and data using it.
 
 > SSL/TLS create a secure, protected tunnel across the internet
+
     * HTTPS - HTML transferred with HTTP protected with SSL
 > SSL/TLS can also protect other data transfer
+
     * SSL VPN
