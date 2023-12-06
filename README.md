@@ -7,6 +7,10 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 #### Encryption && Decryption , Hashing
 
+> There is Two types of Key Based Encrption:
+> Symmetric Encryption : Encrypt ANd Decrypt using the same key
+> Asymmetric Encyption : Encypt and Decrypt using diffrent keys (public, private)
+
 * **Encrption**
 
     `openssl enc "chipher" -in "input file" -out "output file"`
