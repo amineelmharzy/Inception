@@ -9,4 +9,4 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 ** Encrption **
 
-`openssl enc *chipher* -in *input file* -out *output file*`
+`openssl enc "chipher" -in "input file" -out "output file"`
