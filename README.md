@@ -37,11 +37,11 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
 
     **Private Key**
 
-    openssl genpkey -algorithm RSA -out private.key
+    `openssl genpkey -algorithm RSA -out private.key`
 
     **Public Key**
 
-    openssl rsa -pubout -in private.key -out public.key
+    `openssl rsa -pubout -in private.key -out public.key`
 
 
 
