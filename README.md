@@ -17,6 +17,9 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 **Chipers**
 
-    openssl enc list
+    openssl enc -list
 
+**Examples***
 
+    openssl enc -des3 -in plaintext.txt -out encrypted.txt 
+    [//]: # (enter passphrase or you add -k option to add it explicitly to the openssl comamnd)
