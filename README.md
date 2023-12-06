@@ -43,5 +43,5 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
 
     `openssl rsa -pubout -in private.key -out public.key`
 
-
-
+**Cirtificate**
+> Cirtificates used to virity the website identity and it holds the public key that the user should use it to incrypt the packets and data using it.
