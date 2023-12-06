@@ -34,9 +34,13 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 OpenSSL provides tools and libraries that are commonly used in the context of a PKI. Here are some ways OpenSSL can be used in a PKI.
 
 * **Generate public && private key**
+
     **Private Key**
+
     openssl genpkey -algorithm RSA -out private.key
+
     **Public Key**
+
     openssl rsa -pubout -in private.key -out public.key
 
 
