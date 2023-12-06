@@ -17,5 +17,5 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 **Chipers**
 
-    `openssl enc list`
+    openssl enc list
 
