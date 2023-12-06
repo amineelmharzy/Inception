@@ -48,7 +48,7 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
 
 > SSL/TLS create a secure, protected tunnel across the internet
 
-    * HTTPS - HTML transferred with HTTP protected with SSL
+    *HTTPS - HTML transferred with HTTP protected with SSL*
 > SSL/TLS can also protect other data transfer
 
-    * SSL VPN
+    *SSL VPN*
