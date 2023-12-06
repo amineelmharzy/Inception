@@ -25,8 +25,7 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
     # enter passphrase or you add -k option to add it explicitly to the openssl comamnd
     openssl enc -des3 -d -in encrypted.txt -out decrypted.txt # decrypt
 
-
-*   **Hashing**
+**Hashing**
     
     openssl "hash_algorithm" filename # (md5, sha1, sha256, ...)
 
