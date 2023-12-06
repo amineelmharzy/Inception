@@ -64,3 +64,23 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
         * Intergrity : Data is not modified between Client and Server (Hashing)
 
         * Authentication : Client/Server are indeed who they they are (PKI)
+
+**Key PLayers**
+* Client *
+    * Entity intiating the tls handshake
+    * webbrower
+    * optionaly authenticated (rare) (client rarely provide the certificate)
+
+* Server
+    * entity receiving the tls handshake
+    * webserver
+    * always authenticated (always provide the certificate)
+
+* Certificate Authority
+    * governing entity the issueing certificates
+    * trusted by client and server
+    * provides Trusted Anchor
+        * if the client trusts the CA and the CA provides a trusted cirtificate to the server so the client can trust the server
+
+> SSL not used do to some bugs and CVEs : https://www.wallarm.com/what/poodle-attack (poodle attack 2014)
+
