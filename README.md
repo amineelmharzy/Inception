@@ -54,8 +54,13 @@ OpenSSL provides tools and libraries that are commonly used in the context of a 
     SSL VPN
 
 **How do ssl/tls protect data?**
+
     * Data sent across a wire can be captured by anyone in the middle (MITM)
+
     * Purpuse of SSL/TLS is to protect the data in three ways
+
         * Confidentiality : Data is only accessible by Client and Server (Encryption)
+
         * Intergrity : Data is not modified between Client and Server (Hashing)
+
         * Authentication : Client/Server are indeed who they they are (PKI)
