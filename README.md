@@ -6,3 +6,7 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 ![Funny GIF](https://www.visolve.com/uploads/images/ssl_intro1.gif)
 
 #### Encryption && Decryption
+
+** Encrption **
+
+`openssl enc *chipher* -in *input file* -out *output file*`
