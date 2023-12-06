@@ -14,3 +14,8 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 * **Decryption**
 
     `openssl enc "chipher" -d -in "input file" -out "output file"`
+
+**Chipers**
+
+    `openssl enc list`
+
