@@ -103,6 +103,6 @@ if received has decypt the message with sender public key successfully then it m
 if both digests match this prove that : message hasn't changed since sender signed it (integriti) and only the sender could have created the signature (because it's the only one have it's private key)(Authentication)
 
 * How SSl/TLS uses Cryptography?
-    1. Hashing : Fingerprint && Mac (Intergrity, Authentication)
-    2. Symmetric Encryption : Encryption (confidentiality)
-    3. Asymmetric Encryption : Key Exchange (Establish Shared Keys) && Signatures (Intergrity, Authentication) && Encryption (Confidentiality)
+    1. Hashing : Fingerprint && Mac (Intergrity, Authentication) [Bulk Data]
+    2. Symmetric Encryption : Encryption (confidentiality) [Bulk Data]
+    3. Asymmetric Encryption : Key Exchange (Establish Shared Keys) && Signatures (Intergrity, Authentication) && Encryption (Confidentiality) [Limited Data]
