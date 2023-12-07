@@ -93,9 +93,13 @@ Data sent across a wire can be captured by anyone in the middle (MITM)
 **Hashing Ensures the integriti**
 
 Process for using Asymmetric Key pair for Signatures:
+
     1. Sender Calculates a Hash of a message
+
     2. Sender encrypts resulting digest with it's private key
+
     3. Receiver decrypts the signature with Sender public key
+
     4. Receiver calculates Hash of receivied message
 
     if received has decypt the message with sender public key successfully then it means the message successfuly sent and it's from the sender (confidentiality)
