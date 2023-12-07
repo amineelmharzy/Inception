@@ -13,6 +13,8 @@ OpenSSL is an open-source command line tool that is commonly used to generate pr
 
 > Asymmetric Encyption : Encypt and Decrypt using diffrent keys (public, private)
 
+> Hybrid Encrption : use both Asymmetric and Symmetric Encrption (Asymmetric Encrption to facilitate Key Exchange && Secret Key used with Symmetric Encrption for bulk data) (SSL/TLS SSH/IPSEC .. every security protocol)
+
 * **Encrption**
 
     `openssl enc "chipher" -in "input file" -out "output file"`
@@ -85,4 +87,9 @@ Data sent across a wire can be captured by anyone in the middle (MITM)
         * if the client trusts the CA and the CA provides a trusted cirtificate to the server so the client can trust the server
 
 > SSL not used do to some bugs and CVEs : https://www.wallarm.com/what/poodle-attack (poodle attack 2014)
+
+**Encryption Ensures the confidentiality**
+
+**Hashing Ensures the integriti**
+
 
