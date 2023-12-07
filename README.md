@@ -106,3 +106,5 @@ if both digests match this prove that : message hasn't changed since sender sign
     1. Hashing : Fingerprint && Mac (Intergrity, Authentication) [Bulk Data]
     2. Symmetric Encryption : Encryption (confidentiality) [Bulk Data]
     3. Asymmetric Encryption : Key Exchange (Establish Shared Keys) && Signatures (Intergrity, Authentication) && Encryption (Confidentiality) [Limited Data]
+
+* Now let's understand what is the PKI?
