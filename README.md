@@ -93,7 +93,7 @@ Data sent across a wire can be captured by anyone in the middle (MITM)
 **Hashing Ensures the integriti**
 
 *Process for using Asymmetric Key pair for Signatures*
-    1. Sender Calculates a Hash of a message
+    1. Sender Calculates a Hash of a message (MAC) message Authentication Code
     2. Sender encrypts resulting digest with it's private key
     3. Receiver decrypts the signature with Sender public key
     4. Receiver calculates Hash of receivied message
@@ -101,4 +101,6 @@ Data sent across a wire can be captured by anyone in the middle (MITM)
 if received has decypt the message with sender public key successfully then it means the message successfuly sent and it's from the sender (confidentiality)
 
 if both digests match this prove that : message hasn't changed since sender signed it (integriti) and only the sender could have created the signature (because it's the only one have it's private key)(Authentication)
+
+* How SSl/TLS uses Cryptography?
 
