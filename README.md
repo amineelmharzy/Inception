@@ -108,3 +108,13 @@ if both digests match this prove that : message hasn't changed since sender sign
     3. Asymmetric Encryption : Key Exchange (Establish Shared Keys) && Signatures (Intergrity, Authentication) && Encryption (Confidentiality) [Limited Data]
 
 * Now let's understand what is the PKI?
+
+> We Have and client and a server. they should communicate to each other
+
+> They will Use Symmetric Encryption for confidentiality
+> Mac For integriti (those two steps requires mutual secret keys so we first need to establish the Symmetric keys)
+> To do that we need to Asymmetric Encryption to perform Key Exchange`
+
+* In the bulk data process (Recommonded Hyprid Encryption)
+    1. The server should generate a key pair {private, public}
+    
