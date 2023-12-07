@@ -113,8 +113,22 @@ if both digests match this prove that : message hasn't changed since sender sign
 
 > They will Use Symmetric Encryption for confidentiality
 > Mac For integriti (those two steps requires mutual secret keys so we first need to establish the Symmetric keys)
-> To do that we need to Asymmetric Encryption to perform Key Exchange`
+> To do that we need to Asymmetric Encryption to perform Key Exchange
+
+> But we miss the authentication because every body can generate asymmetric keys. (Her we need CA Cirtificate Authority)
+
 
 * In the bulk data process (Recommonded Hyprid Encryption)
     1. The server should generate a key pair {private, public}
+    2. CA is trusted by client
+    3. CA will generate a Certificate (this certificate says that ["Every body has the private key of that publick Key __ is the server of course and surely"])
+    4. Certificate is Signed by the CA (the Signiture Created by the Certificate Authority)
+    5. because of the client trust the CA and the certificate is signed by CA . now that's provide Authentication to the certificate it selft (it won't be changed)
+    6. Since the certificate not changed now the asymmetric keys that the certificate validate also inherit Authentication.
+    7. So the MAC also inherit Authentication.
+ 
+Client , Server, CA => PKI
+
+ 
+
     
