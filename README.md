@@ -131,8 +131,9 @@ Client , Server, CA => PKI
 
 #### Openssl self-signed and root ca create
 
-# private key
-openssl genrsa -out $KEY 4096
+**private key**
+
+`openssl genrsa -out $KEY 4096`
 
 # certificate signing request CSR
 openssl req -new -key $KEY -out $CSR -subj "/C=CA/ST=ON/L=Toronto/O=Amine Org/CN=Amine"
