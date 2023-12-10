@@ -136,16 +136,21 @@ Client , Server, CA => PKI
 `openssl genrsa -out $KEY 4096`
 
 **certificate signing request CSR**
+
 `openssl req -new -key $KEY -out $CSR -subj "/C=CA/ST=ON/L=Toronto/O=Amine Org/CN=Amine"`
 
 **self-signed CA certificate**
+
 `openssl x509 -req -in $CSR -key $KEY -out $CER -days 1080`
 
 **genrate root CA private_key**
+
 `openssl genrsa -aes-256-cbc -out $ROOT_CA_KEY -passout pass:$MY_CA_KEY_PASSWORD 4096`
 
 **genrate self-signed root CA certificate**
+
 `openssl req -x509 -key $ROOT_CA_KEY -sha512 -out $ROOT_CA -days 1080 -subj "/C=CA/ST=ON/L=Toronto/O=Amine Org/CN=Amine" -passin pass:$MY_CA_KEY_PASSWORD`
 
 **sign CSR with Root CA certificate**
+
 `openssl x509 -req -CA $ROOT_CA -CAkey $ROOT_CA_KEY -in $CSR -days 1080 -out $CER -CAcreateserial -passin pass:$MY_CA_KEY_PASSWORD`
