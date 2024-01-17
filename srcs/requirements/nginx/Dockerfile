@@ -1,7 +1,7 @@
 # This dockerfile for build nginx image
 
 # using lightweight debian image
-FROM	debian:bullseye-slim
+FROM	debian:bookworm-slim
 
 WORKDIR	setup/
 

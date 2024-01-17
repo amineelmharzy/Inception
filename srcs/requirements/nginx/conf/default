@@ -1,35 +1,37 @@
 server {
         listen 80;
-        listen [::]:80;
-	server_name ael-mhar.42.fr www.ael-mhar.42.fr;
+        root /var/www/html/;
+        index index.php index.html index.htm;
+        server_name localhost;
 
-	client_max_body_size 500M;
+        location = / {
+                try_files $uri %uri/ /index.php?$args;
+        }
 
-	location / {
-		try_files $uri $uri/ /index.php?$args;
-	}
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires max;
+                log_not_found off;
+        }
 
-	location = /favicon.ico {
-		access_log     off;
-		log_not_found  off;
-	}
-	
-	location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-		expires max;
-		log_not_found  off;
-	}
+        location = /robots.txt {
+                allow all;
+                log_not_found off;
+                access_log off;
+        }
 
-	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
-		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		include fastcgi_params;
-	}
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
 }
 
 server{
 	listen 443 ssl;
 	listen [::]:443 ssl;
+        root /var/www/html;
+        index index.php index.html index.htm;
 	server_name localhost;
 
 	# ssl/tls configuration
@@ -43,4 +45,26 @@ server{
 
 	ssl_session_timeout 1d;
 	ssl_session_cache shared:SSL:20m;
+
+        location = / {
+                try_files $uri %uri/ /index.php?$args;
+        }
+
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires max;
+                log_not_found off;
+        }
+
+        location = /robots.txt {
+                allow all;
+                log_not_found off;
+                access_log off;
+        }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
 }

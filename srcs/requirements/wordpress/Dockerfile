@@ -3,14 +3,16 @@
 FROM	debian:bookworm-slim
 
 WORKDIR	/app
-ENV	$(cat ~/Inception/srcs/.env)
+ENV	WORDPRESS_DATABASE_PASSWORD="amine"
+ENV	WORDPRESS_DATABASE_NAME="amine"
+ENV	WORDPRESS_DATABASE_USER="amine"
 
 RUN	apt update && \
 	apt upgrade -y && \
 	apt install -y php-fpm php-mysql wget && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x wp-cli.phar && \
 	mv wp-cli.phar /usr/local/bin/wp
 
