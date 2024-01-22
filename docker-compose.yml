@@ -1,0 +1,29 @@
+services:
+  nginx:
+    image: mynginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - wordpress_website:/var/www/html
+    depends_on:
+      - mysql
+  mysql:
+    image: ma:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - wordpress_database:/var/lib/mysql
+
+version: '3.9'
+
+volumes:
+  wordpress_website:
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ael-mhar/data/wordpress_website
+  wordpress_database:
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ael-mhar/data/wordpress_database

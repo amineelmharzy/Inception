@@ -5,7 +5,7 @@ server {
         server_name localhost;
 
         location = / {
-                try_files $uri %uri/ /index.php?$args;
+                try_files $uri $uri/ /index.php?$args;
         }
 
         location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
@@ -47,7 +47,7 @@ server{
 	ssl_session_cache shared:SSL:20m;
 
         location = / {
-                try_files $uri %uri/ /index.php?$args;
+                try_files $uri $uri/ /index.php?$args;
         }
 
         location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {

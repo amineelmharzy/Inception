@@ -3,9 +3,9 @@
 FROM	debian:bookworm-slim
 
 WORKDIR	/app
-ENV	WORDPRESS_DATABASE_PASSWORD="amine"
-ENV	WORDPRESS_DATABASE_NAME="amine"
-ENV	WORDPRESS_DATABASE_USER="amine"
+ENV	WORDPRESS_DATABASE_PASSWORD="wordpress"
+ENV	WORDPRESS_DATABASE_NAME="leonardo"
+ENV	WORDPRESS_DATABASE_USER="leonardo"
 
 RUN	apt update && \
 	apt upgrade -y && \
@@ -16,6 +16,7 @@ RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 	chmod +x wp-cli.phar && \
 	mv wp-cli.phar /usr/local/bin/wp
 
+COPY	conf/wp-config.php .
 COPY	tools/install.sh .
 
 RUN	chmod +x install.sh
