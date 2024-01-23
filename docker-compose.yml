@@ -1,18 +1,32 @@
 services:
   nginx:
-    image: mynginx:latest
+    image: nx:latest
     ports:
       - 80:80
     volumes:
       - wordpress_website:/var/www/html
     depends_on:
       - mysql
-  mysql:
-    image: ma:latest
-    ports:
-      - 3306:3306
+      - wordpress
+    networks:
+      - network
+  wordpress:
+    image: wp:latest
     volumes:
       - wordpress_database:/var/lib/mysql
+      - wordpress_website:/var/www/html
+    ports:
+      - 9000:9000
+    networks:
+      - network
+  mysql:
+    image: ma:latest
+    volumes:
+      - wordpress_database:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - network
 
 version: '3.9'
 
@@ -27,3 +41,7 @@ volumes:
       type: none
       o: bind
       device: /home/ael-mhar/data/wordpress_database
+
+networks:
+  network:
+    driver: bridge

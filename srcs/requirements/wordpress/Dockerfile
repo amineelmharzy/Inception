@@ -20,5 +20,6 @@ COPY	conf/wp-config.php .
 COPY	tools/install.sh .
 
 RUN	chmod +x install.sh
+EXPOSE	9000
 
 CMD	["./install.sh"]
