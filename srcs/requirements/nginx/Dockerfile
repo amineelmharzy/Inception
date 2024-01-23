@@ -1,6 +1,3 @@
-# This dockerfile for build nginx image
-
-# using lightweight debian image
 FROM	debian:bookworm-slim
 
 WORKDIR	app/

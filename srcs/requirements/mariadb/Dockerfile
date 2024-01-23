@@ -1,4 +1,3 @@
-# Use a Debian base image
 FROM	debian:bookworm-slim
 
 WORKDIR	app/

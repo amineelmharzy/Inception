@@ -19,11 +19,11 @@ mv wp-cli.phar /usr/local/bin/wp
 
 wp core install --allow-root \
   --path="/var/www/html" \
-  --url="http://ael-mhar.42.fr" \
-  --title="amine" \
-  --admin_user="amine" \
-  --admin_password="amine" \
-  --admin_email="amine@amine.com"
+  --url="$WORDPRESS_URL" \
+  --title="$WORDPRESS_SITE_TITLE" \
+  --admin_user="$WORDPRESS_USER" \
+  --admin_password="$WORDPRESS_PASSWORD" \
+  --admin_email="$WORDPRESS_EMAIL"
 
 sed -i "s/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/" /etc/php/8.2/fpm/pool.d/www.conf
 

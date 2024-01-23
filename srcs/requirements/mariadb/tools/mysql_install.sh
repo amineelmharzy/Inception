@@ -2,19 +2,6 @@
 
 /etc/init.d/mariadb start 2>/dev/null
 
-DEBIAN_FRONTEND="noninteractive"
-
-MYSQL_ROOT_PASSWORD="root"
-DOMAIN_NAME="ael-mhar.42.fr"
-
-WORDPRESS_DATABASE_NAME="wordpress"
-WORDPRESS_DATABASE_USER="leonardo"
-WORDPRESS_DATABASE_PASSWORD="leonardo"
-WORDPRESS_SITE_TITLE="ael-mhar.42.fr"
-WORDPRESS_USER="ael-mhar"
-WORDPRESS_PASSWRORD="a7bb8527d255949a8c4b"
-WORDPRESS_EMAIL="ael-mhar@42.fr"
-
 if [ -d /var/lib/mysql/$WORDPRESS_DATABASE_NAME ]
 then
 	echo "mysql already done."

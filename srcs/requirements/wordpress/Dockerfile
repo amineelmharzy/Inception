@@ -3,10 +3,6 @@
 FROM	debian:bookworm-slim
 
 WORKDIR	/app
-ENV	WORDPRESS_DATABASE_NAME="wordpress"
-ENV	WORDPRESS_DATABASE_USER="leonardo"
-ENV	WORDPRESS_DATABASE_PASSWORD="leonardo"
-ENV	MARIADB_HOST="mariadb"
 
 RUN	apt update && \
 	apt upgrade -y && \

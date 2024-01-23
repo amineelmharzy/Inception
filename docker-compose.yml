@@ -1,8 +1,14 @@
+
+networks:
+  network: {}
+
 services:
   nginx:
     image: nginx:latest
     ports:
       - 80:80
+    env_file:
+      - srcs/.env
     volumes:
       - wordpress_website:/var/www/html
     depends_on:
@@ -12,6 +18,8 @@ services:
       - network
   wordpress:
     image: wordpress:latest
+    env_file:
+      - srcs/.env
     volumes:
       - wordpress_database:/var/lib/mysql
       - wordpress_website:/var/www/html
@@ -19,6 +27,8 @@ services:
       - network
   mariadb:
     image: mariadb:latest
+    env_file:
+      - srcs/.env
     volumes:
       - wordpress_database:/var/lib/mysql
     networks:
@@ -37,6 +47,3 @@ volumes:
       type: none
       o: bind
       device: /home/ael-mhar/data/wordpress_database
-
-networks:
-  network:
