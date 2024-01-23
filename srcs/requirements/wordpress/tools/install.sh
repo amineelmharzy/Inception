@@ -10,14 +10,21 @@ then
 	sed -i "s/database_name_here/$WORDPRESS_DATABASE_NAME/" /var/www/html/wp-config.php
 	sed -i "s/username_here/$WORDPRESS_DATABASE_USER/" /var/www/html/wp-config.php
 	sed -i "s/password_here/$WORDPRESS_DATABASE_PASSWORD/" /var/www/html/wp-config.php
-	sed -i "s/localhost/ma/" /var/www/html/wp-config.php
+	sed -i "s/localhost/$MARIADB_HOST/" /var/www/html/wp-config.php
 fi
 
-#wp core install \
-#  --url="http://ael-mhar.42.fr" \
-#  --title="$WORDPRESS_SITE_TITLE" \
-#  --admin_user="$WORDPRESS_USER" \
-#  --admin_password="$WORDPRESS_PASSWORD" \
-#  --admin_email="$WORDPRESS_EMAIL"
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
 
-php-fpm8.2 -F
+wp core install --allow-root \
+  --path="/var/www/html" \
+  --url="http://ael-mhar.42.fr" \
+  --title="amine" \
+  --admin_user="amine" \
+  --admin_password="amine" \
+  --admin_email="amine@amine.com"
+
+sed -i "s/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/" /etc/php/8.2/fpm/pool.d/www.conf
+
+php-fpm8.2 -F -R

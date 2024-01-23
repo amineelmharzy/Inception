@@ -1,30 +1,26 @@
 services:
   nginx:
-    image: nx:latest
+    image: nginx:latest
     ports:
       - 80:80
     volumes:
       - wordpress_website:/var/www/html
     depends_on:
-      - mysql
+      - mariadb
       - wordpress
     networks:
       - network
   wordpress:
-    image: wp:latest
+    image: wordpress:latest
     volumes:
       - wordpress_database:/var/lib/mysql
       - wordpress_website:/var/www/html
-    ports:
-      - 9000:9000
     networks:
       - network
-  mysql:
-    image: ma:latest
+  mariadb:
+    image: mariadb:latest
     volumes:
       - wordpress_database:/var/lib/mysql
-    ports:
-      - 3306:3306
     networks:
       - network
 
@@ -44,4 +40,3 @@ volumes:
 
 networks:
   network:
-    driver: bridge

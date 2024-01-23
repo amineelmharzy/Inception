@@ -2,7 +2,7 @@ server {
         listen 80;
         root /var/www/html/;
         index index.php index.html index.htm;
-        server_name ael-mhar.42.fr;
+        server_name localhost;
 
         location = / {
                 try_files $uri $uri/ /index.php?$args;
@@ -21,7 +21,7 @@ server {
 
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+                fastcgi_pass wordpress:9000;
                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                 include fastcgi_params;
         }

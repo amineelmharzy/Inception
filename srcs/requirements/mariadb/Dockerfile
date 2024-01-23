@@ -4,7 +4,7 @@ FROM	debian:bookworm-slim
 WORKDIR	app/
 
 RUN	apt-get update && \
-	apt-get install -y mariadb-server vim && \
+	apt-get install -y mariadb-server && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 

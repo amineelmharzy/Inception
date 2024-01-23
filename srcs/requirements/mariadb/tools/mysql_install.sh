@@ -31,8 +31,8 @@ else
 	mysql -sf < mysql_secure_installation.sql
 
 	echo "CREATE DATABASE IF NOT EXISTS $WORDPRESS_DATABASE_NAME;" >> wordpress_database_initiate.sql
-	echo "CREATE USER '$WORDPRESS_DATABASE_USER'@'localhost' IDENTIFIED BY '$WORDPRESS_DATABASE_PASSWORD';" >> wordpress_database_initiate.sql
-	echo "GRANT ALL ON $WORDPRESS_DATABASE_NAME.* TO '$WORDPRESS_DATABASE_USER'@'localhost';" >> wordpress_database_initiate.sql
+	echo "CREATE USER '$WORDPRESS_DATABASE_USER'@'%' IDENTIFIED BY '$WORDPRESS_DATABASE_PASSWORD';" >> wordpress_database_initiate.sql
+	echo "GRANT ALL ON $WORDPRESS_DATABASE_NAME.* TO '$WORDPRESS_DATABASE_USER'@'%';" >> wordpress_database_initiate.sql
 	echo "FLUSH PRIVILEGES;" >> wordpress_database_initiate.sql
 
 	mysql -sfu root --password=$MYSQL_ROOT_PASSWORD < wordpress_database_initiate.sql
