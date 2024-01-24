@@ -30,9 +30,9 @@ server {
 server{
 	listen 443 ssl;
 	listen [::]:443 ssl;
-        root /var/www/html;
+        root /var/www/html/;
         index index.php index.html index.htm;
-	server_name ael-mhar.42.fr;
+	server_name localhost;
 
 	# ssl/tls configuration
 
