@@ -1,7 +1,6 @@
 FROM	debian:bookworm-slim
 
-ENV	FTP_USER="amine"
-ENV	FTP_PASSWORD="amine"
+WORKDIR	app/
 
 RUN	apt update && \
 	apt install vsftpd ftp -y && \
@@ -11,4 +10,7 @@ COPY	conf/vsftpd.conf /etc/vsftpd.conf
 COPY	tools/init.sh .
 RUN	chmod +x init.sh
 
-CMD	["/bin/bash"]
+EXPOSE	21
+EXPOSE	40000-40010
+
+CMD	["./init.sh"]
