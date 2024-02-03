@@ -1,7 +1,14 @@
 FROM	debian:bookworm-slim
 
-RUN	apt update && \
-	apt install redis vim -y && \
+LABEL   vendor="madebyamine"
+LABEL   version="1.0"
+LABEL   description="Custom redis image based on debian:bookworm (12) image"
+LABEL   release_date="2024-01-01"
+
+WORKDIR	main/
+
+RUN	apt update
+RUN	apt install redis -y && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY	tools/init_redis.sh .

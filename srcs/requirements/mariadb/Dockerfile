@@ -1,9 +1,14 @@
 FROM	debian:bookworm-slim
 
-WORKDIR	app/
+LABEL	vendor="madebyamine"
+LABEL	version="1.0"
+LABEL	description="Custom mariadb image based on debian:bookworm (12) image"
+LABEL	release_date="2024-01-01"
 
-RUN	apt-get update && \
-	apt-get install -y mariadb-server && \
+WORKDIR	main/
+
+RUN	apt-get update
+RUN	apt-get install -y mariadb-server && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 

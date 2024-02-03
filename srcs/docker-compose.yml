@@ -1,5 +1,6 @@
 networks:
-  inception: {}
+  inception:
+    name: inception
 
 services:
   nginx:
@@ -7,7 +8,6 @@ services:
     build: ./requirements/nginx
     container_name: nginx
     ports:
-      - "80:80"
       - "443:443"
     env_file:
       - .env
@@ -82,12 +82,27 @@ services:
     depends_on:
       - wordpress
     restart: always
+  website:
+    image: website:latest
+    build: ./requirements/bonus/website
+    container_name: website
+    env_file:
+      - .env
+    ports:
+      - "7000:7000"
+    networks:
+      - inception
+    restart: always
   cadvisor:
     image: cadvisor
     build: ./requirements/bonus/cadvisor
     container_name: cadvisor
     env_file:
       - .env
+    volumes:
+      - /var/run:/var/run:rw
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /sys:/sys:ro
     ports:
       - "8080:8080"
     networks:
@@ -98,11 +113,13 @@ version: '3.9'
 
 volumes:
   wordpress_website:
+    name: wordpress_website
     driver_opts:
       type: none
       o: bind
       device: /home/ael-mhar/data/wordpress_website
   wordpress_database:
+    name: wordpress_database
     driver_opts:
       type: none
       o: bind

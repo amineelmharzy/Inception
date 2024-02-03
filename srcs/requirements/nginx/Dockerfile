@@ -1,17 +1,20 @@
 FROM	debian:bookworm-slim
 
-WORKDIR	app/
+LABEL   vendor="madebyamine"
+LABEL   version="1.0"
+LABEL   description="Custom nginx image based on debian:bookworm (12) image"
+LABEL   release_date="2024-01-01"
 
-RUN	apt-get update && \
-	apt-get install nginx openssl -y && \
+WORKDIR	main/
+
+RUN	apt-get update
+RUN	apt-get install -y nginx \
+	openssl && \
 	rm -rf /var/lib/apt/lists/*
 
+COPY	conf/default /etc/nginx/sites-available/default
 COPY	tools/init.sh .
 RUN	chmod +x init.sh
 
-COPY	conf/default /etc/nginx/sites-available/default
-
-EXPOSE	80
 EXPOSE	443
-
 CMD	["./init.sh"]
