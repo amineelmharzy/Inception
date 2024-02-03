@@ -1,20 +1,20 @@
-
 networks:
-  network: {}
+  inception: {}
 
 services:
   nginx:
     image: nginx:latest
     build: ./requirements/nginx
+    container_name: nginx
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     env_file:
       - .env
     volumes:
       - wordpress_website:/var/www/html
     networks:
-      - network
+      - inception
     depends_on:
       - mariadb
       - wordpress
@@ -22,45 +22,77 @@ services:
   mariadb:
     image: mariadb:latest
     build: ./requirements/mariadb
+    container_name: mariadb
     env_file:
       - .env
     volumes:
       - wordpress_database:/var/lib/mysql
     networks:
-      - network
+      - inception
     restart: always
   wordpress:
     image: wordpress:latest
     build: ./requirements/wordpress
+    container_name: wordpress
     env_file:
       - .env
     volumes:
       - wordpress_database:/var/lib/mysql
       - wordpress_website:/var/www/html
     networks:
-      - network
+      - inception
     restart: always
   ftp:
     image: ftp:latest
     build: ./requirements/bonus/ftp
+    container_name: ftp
     env_file:
       - .env
     ports:
+      - "21:21"
       - "40000-40010:40000-40010"
-      - 21:21
+    volumes:
+      - wordpress_website:/home/ftpuser/ftp/wordpress
     networks:
-      - network
+      - inception
     restart: always
-      #adminer:
-      #image: adminer:latest
-      #build: ./requirements/bonus/adminer
-      #env_file:
-      #- .env
-        #volumes:
-      #- wordpress_website:/var/www/html
-        #networks:
-      #- network
-        #restart: always
+  adminer:
+    image: adminer:latest
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    restart: always
+  redis:
+    image: redis:latest
+    build: ./requirements/bonus/redis
+    container_name: redis
+    env_file:
+      - .env
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    restart: always
+  cadvisor:
+    image: cadvisor
+    build: ./requirements/bonus/cadvisor
+    container_name: cadvisor
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: always
 
 version: '3.9'
 

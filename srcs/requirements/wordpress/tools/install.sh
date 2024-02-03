@@ -23,6 +23,9 @@ then
 	  --admin_user="$WORDPRESS_USER" \
 	  --admin_password="$WORDPRESS_PASSWORD" \
 	  --admin_email="$WORDPRESS_EMAIL"
+
+	wp plugin install redis-cache --activate --allow-root --path="/var/www/html"
+	wp redis enable --allow-root --path="/var/www/html"
 fi
 
 sed -i "s/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/" /etc/php/8.2/fpm/pool.d/www.conf
