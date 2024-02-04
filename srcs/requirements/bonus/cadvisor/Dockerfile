@@ -5,6 +5,8 @@ LABEL   version="1.0"
 LABEL   description="Custom cadvisor image based on debian:bookworm (12) image"
 LABEL   release_date="2024-01-01"
 
+WORKDIR	main/
+
 RUN	apt update
 RUN	apt install -y wget && \
 	rm -rf /var/lib/apt/lists/*

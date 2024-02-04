@@ -18,7 +18,7 @@ then
 
 	wp core install --allow-root \
 	  --path="/var/www/html" \
-	  --url="$WORDPRESS_URL" \
+	  --url="$DOMAIN_NAME" \
 	  --title="$WORDPRESS_SITE_TITLE" \
 	  --admin_user="$WORDPRESS_USER" \
 	  --admin_password="$WORDPRESS_PASSWORD" \

@@ -6,7 +6,7 @@ LABEL   description="This image is based on debian:bookworm (12) image \
 	and it running a html,css,js static website inside it using python"
 LABEL   release_date="2024-01-01"
 
-WORKDIR	app/
+WORKDIR	main/
 
 RUN	apt update 
 RUN	apt install python3 -y
