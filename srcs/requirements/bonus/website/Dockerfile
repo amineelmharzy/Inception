@@ -8,10 +8,11 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update 
-RUN	apt install python3 -y
+RUN	apt-get update && apt-get install -y \
+	python3 \
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY	src/ .
 
 EXPOSE	7000
-CMD	["python3", "-m", "http.server", "7000"]
+CMD	["nohup", "python3", "-m", "http.server", "7000"]

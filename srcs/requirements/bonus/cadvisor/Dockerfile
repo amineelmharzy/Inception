@@ -7,9 +7,9 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update
-RUN	apt install -y wget && \
-	rm -rf /var/lib/apt/lists/*
+RUN	apt-get update && apt-get install -y \
+	wget \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN	wget https://github.com/google/cadvisor/releases/download/v0.39.3/cadvisor
 RUN	chmod +x cadvisor

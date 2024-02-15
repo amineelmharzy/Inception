@@ -7,12 +7,12 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update
-RUN	apt install -y wget \
+RUN	apt-get update && apt-get install -y \
+	wget \
 	php \
 	php-mysql \
-	php-fpm && \
-	rm -rf /var/lib/apt/lists/*
+	php-fpm \
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY	tools/install.sh .
 RUN	chmod +x install.sh

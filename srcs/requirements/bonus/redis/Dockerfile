@@ -7,9 +7,9 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update
-RUN	apt install redis -y && \
-	rm -rf /var/lib/apt/lists/*
+RUN	apt-get update && apt-get install -y \
+	redis \
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY	tools/init_redis.sh .
 RUN	chmod +x init_redis.sh

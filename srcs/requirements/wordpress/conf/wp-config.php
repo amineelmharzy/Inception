@@ -60,6 +60,7 @@ define('AUTH_SALT',        'q!ku*o@@6K(H+),gCY+Oz,]{-dnhQR[d_xL3B{>Sf++PiRDGxK!2
 define('SECURE_AUTH_SALT', 'CBC<]Sc/xyIVU[iwnR-75N4nHv+$V*4*!M;,9@<>9N&}zqSU!@[r9kM<t lcjLq2');
 define('LOGGED_IN_SALT',   ',[>S+[Xp*I@Pqj+b|D7x,,Y6#]|j3^-;E8-i^!tGsuKe-A5e-R+DCr/PqN][J~R/');
 define('NONCE_SALT',       'f8dMaCMXvB-,2?ai1J| 6^r{;_hYUkv0qNOT4!eR#8vrk|<?**zQ,BC0)l.1M+3j');
+define('WP_CACHE_KEY_SALT', 'ael-mhar.42.fr');
 
 /**#@-*/
 

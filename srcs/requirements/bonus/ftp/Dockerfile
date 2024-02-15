@@ -7,9 +7,9 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update
-RUN	apt install vsftpd -y && \
-	rm -rf /var/lib/apt/lists/*
+RUN	apt-get update && apt-get install -y \
+	vsftpd \
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY	conf/vsftpd.conf /etc/vsftpd.conf
 COPY	tools/init.sh .

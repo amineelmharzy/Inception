@@ -8,13 +8,12 @@ LABEL   release_date="2024-01-01"
 
 WORKDIR	main/
 
-RUN	apt update
-RUN	apt install -y php-fpm \
+RUN	apt-get update && apt-get install -y \
+	php-fpm \
 	php-mysql \
 	php-redis \
 	wget \
-	postfix && \
-	rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY	conf/wp-config.php .
 COPY	tools/install.sh .

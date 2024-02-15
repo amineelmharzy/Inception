@@ -1,3 +1,7 @@
+upstream php {
+	server wordpress:9000;
+}
+
 server {
         listen 80;
         root /var/www/html/;
@@ -21,7 +25,7 @@ server {
 
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
-                fastcgi_pass wordpress:9000;
+                fastcgi_pass php;
                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                 include fastcgi_params;
         }
@@ -35,14 +39,12 @@ server{
 	server_name ael-mhar.42.fr;
 
 	# ssl/tls configuration
-
 	ssl_certificate /etc/ssl/certs/certificate.crt;
 	ssl_certificate_key /etc/ssl/private/private.pem;
-	ssl_protocols TLSv1.3;
-	ssl_ciphers 'ECDHE-RSA-AES256-GCM-SHA384';
+	ssl_protocols TLSv1.2 TLSv1.3;
+	ssl_ciphers HIGH:!aNULL:!MD5;
 
 	# ssl session timeout and cache
-
 	ssl_session_timeout 1d;
 	ssl_session_cache shared:SSL:20m;
 
@@ -63,7 +65,7 @@ server{
 
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
-                fastcgi_pass wordpress:9000;
+                fastcgi_pass php;
                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                 include fastcgi_params;
         }
