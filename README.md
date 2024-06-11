@@ -280,5 +280,44 @@ Client , Server, CA => PKI
 
 `openssl x509 -req -CA $ROOT_CA -CAkey $ROOT_CA_KEY -in $CSR -days 1080 -out $CER -CAcreateserial -passin pass:$MY_CA_KEY_PASSWORD`
 
+## Ftp
 
+### Active Mode
 
+* Client Connection Initiation: The client connects to the server command port (usually 21) from a random unprivileged port (N). The client sends the `PORT` command to the server. indicating the client's IP address a random unprivileged port (P) for data transfer.
+* Server Connection Initiation: The server then initiates a connection from its data port (usually port 20) to the client's specify port (P).
+
+** Firewall Considerations **
+    > The server needs to establish a new outgoing connection to the client
+    > The client must be ready to accept incoming connections on the specified port (P).
+    > Often problematic with client-side firewalls and NAT configurations, as they might block the incoming connection from the server.
+the 
+### Passive Mode
+
+* Client Connection Initiation: the client connects to the server's command port (usally port 21) from a random unprivileged port (N). The cliend sends the `PASV` command to the server.
+* Server Connection Initiation: the server responds with an IP address and a port number (P) for the client to connect to.
+* Client Connection Initiation: The client initiates the connection to the server's specified port (P) for data transfer.
+
+** Firewall Considerations **
+    > The server waits for the client to establish the data connection.
+    > The client initiates both command and data connections, which is usually easier for firewalls and NAT configurations to handle
+    > Preferred in restrictive network environments.
+
+#### Summary
+
+* Active Mode:
+
+    - Client: Sends PORT command, waits for server's connection.
+    - Server: Connects from port 20 to client's specified port.
+    - Firewall: Client must accept incoming connections.
+
+* Passive Mode:
+
+    - Client: Sends PASV command, connects to server's specified port.
+    - Server: Waits for client's connection on specified port.
+    - Firewall: Easier to handle, client initiates all connections.
+
+#### When to Use Which Mode
+
+* Active Mode: Suitable if the client can accept incoming connections and there's no restrictive firewall or NAT.
+* Passive Mode: Preferred in most modern network environments due to easier firewall and NAT traversal. Commonly used when the client is behind a firewall or NAT.
