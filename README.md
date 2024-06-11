@@ -288,10 +288,11 @@ Client , Server, CA => PKI
 * Server Connection Initiation: The server then initiates a connection from its data port (usually port 20) to the client's specify port (P).
 
 ** Firewall Considerations **
+
     - The server needs to establish a new outgoing connection to the client
     - The client must be ready to accept incoming connections on the specified port (P).
     - Often problematic with client-side firewalls and NAT configurations, as they might block the incoming connection from the server.
-the 
+    
 ### Passive Mode
 
 * Client Connection Initiation: the client connects to the server's command port (usally port 21) from a random unprivileged port (N). The cliend sends the `PASV` command to the server.
@@ -299,6 +300,7 @@ the
 * Client Connection Initiation: The client initiates the connection to the server's specified port (P) for data transfer.
 
 ** Firewall Considerations **
+
     - The server waits for the client to establish the data connection.
     - The client initiates both command and data connections, which is usually easier for firewalls and NAT configurations to handle
     - Preferred in restrictive network environments.
