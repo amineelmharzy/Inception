@@ -1,4 +1,4 @@
-FROM	debian:bookworm-slim
+FROM	debian:bookworm
 
 LABEL	vendor="madebyamine"
 LABEL	version="1.0"
